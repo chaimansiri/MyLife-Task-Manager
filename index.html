@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLife - Personal Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>MyLife <span>♡</span></h2>
+                <p>Your personal space</p>
+            </div>
+
+            <nav class="menu">
+                <a href="#dashboard" class="active">🏠 Dashboard</a>
+                <a href="#tasks">📝 My Tasks</a>
+                <a href="#habits">🌱 Habits</a>
+                <a href="#calendar">📅 Calendar</a>
+                <a href="#goals">🎯 My Goals</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>♡ Make every day count</p>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="welcome">
+                <div>
+                    <h1>Hello, Welcome Back! 🌷</h1>
+                    <p>Make today a beautiful day.</p>
+                </div>
+
+                <div class="profile">
+                    <span>♡</span>
+                    My Space
+                </div>
+            </header>
+
+
+            <!-- DASHBOARD -->
+            <section id="dashboard">
+
+                <div class="date-card">
+                    <div>
+                        <h3>My Daily Planner ✨</h3>
+                        <p id="current-date"></p>
+                    </div>
+                    <span>🌸</span>
+                </div>
+
+
+                <!-- STATISTICS -->
+                <div class="stats">
+
+                    <div class="stat-card pink">
+                        <span>📋</span>
+                        <h3>Total Tasks</h3>
+                        <p id="total-tasks">0</p>
+                    </div>
+
+                    <div class="stat-card purple">
+                        <span>✓</span>
+                        <h3>Completed</h3>
+                        <p id="completed-tasks">0</p>
+                    </div>
+
+                    <div class="stat-card rose">
+                        <span>⏳</span>
+                        <h3>Pending</h3>
+                        <p id="pending-tasks">0</p>
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+                <div class="progress-card">
+                    <h2>Daily Progress 🌷</h2>
+                    <p id="progress-text">0% completed</p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- TASKS -->
+            <section id="tasks" class="section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>My Tasks 📝</h2>
+                        <p>Organize your day, one task at a time.</p>
+                    </div>
+
+                    <button id="open-task-form">+ Add Task</button>
+                </div>
+
+
+                <!-- TASK FORM -->
+                <form id="task-form" class="form-card hidden">
+
+                    <h3>Create a New Task ♡</h3>
+
+                    <label for="task-name">Task Name</label>
+                    <input type="text" id="task-name"
+                        placeholder="What do you need to do?" required>
+
+                    <div class="form-row">
+
+                        <div>
+                            <label for="task-category">Category</label>
+                            <select id="task-category">
+                                <option value="Study">Study</option>
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Self-care">Self-care</option>
+                                <option value="Health">Health</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div>
+                            <label for="task-date">Date</label>
+                            <input type="date" id="task-date" required>
+                        </div>
+
+                        <div>
+                            <label for="task-time">Time</label>
+                            <input type="time" id="task-time">
+                        </div>
+
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" id="save-task">Save Task ♡</button>
+                        <button type="button" id="cancel-task">Cancel</button>
+                    </div>
+
+                </form>
+
+
+                <!-- TASK FILTERS -->
+                <div class="filter-section">
+
+                    <select id="category-filter">
+                        <option value="All">All Categories</option>
+                        <option value="Study">Study</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Self-care">Self-care</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <select id="date-filter">
+                        <option value="All">All Tasks</option>
+                        <option value="Today">Today</option>
+                        <option value="Upcoming">Upcoming</option>
+                        <option value="Overdue">Overdue</option>
+                    </select>
+
+                </div>
+
+                <div id="task-list" class="task-list"></div>
+
+            </section>
+
+
+            <!-- HABITS -->
+            <section id="habits" class="section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>My Daily Habits 🌱</h2>
+                        <p>Small habits, beautiful progress.</p>
+                    </div>
+
+                    <button id="open-habit-form">+ Add Habit</button>
+                </div>
+
+
+                <!-- HABIT FORM -->
+                <form id="habit-form" class="form-card hidden">
+
+                    <h3>Create a New Habit ♡</h3>
+
+                    <label for="habit-name">Habit Name</label>
+                    <input type="text" id="habit-name"
+                        placeholder="Example: Read 20 minutes" required>
+
+                    <label for="habit-category">Category</label>
+                    <select id="habit-category">
+                        <option value="Study">Study</option>
+                        <option value="Health">Health</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Self-care">Self-care</option>
+                    </select>
+
+                    <div class="form-buttons">
+                        <button type="submit">Save Habit ♡</button>
+                        <button type="button" id="cancel-habit">Cancel</button>
+                    </div>
+
+                </form>
+
+
+                <!-- HABIT PROGRESS -->
+                <div class="progress-card">
+                    <h3>Today's Habits</h3>
+                    <p id="habit-progress-text">0 / 0 completed</p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="habit-progress-fill"></div>
+                    </div>
+                </div>
+
+
+                <div id="habit-list" class="habit-list"></div>
+
+            </section>
+
+
+            <!-- CALENDAR PLACEHOLDER -->
+            <section id="calendar" class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Calendar 📅</h2>
+                        <p>Calendar features coming soon.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- GOALS PLACEHOLDER -->
+            <section id="goals" class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>My Goals 🎯</h2>
+                        <p>Set your goals and make progress.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <p>Made with ♡ | MyLife Personal Planner</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
